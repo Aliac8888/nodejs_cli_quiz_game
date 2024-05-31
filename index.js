@@ -138,7 +138,7 @@ function handleAnswer(isCorrect) {
       spinner.error({
         text: `Wizard: Wrong one ${playerName}...Oh Am I Going To Die Again?`,
       });
-      process.exit(1);
+      process.exit(1); 
     }
   });
 }
