@@ -15,6 +15,7 @@ const sleep = function (ms = 2000) {
   });
 };
 
+// WELCOME SECTION
 async function welcome() {
   const rainbowTitle = chalkAnimation.rainbow(
     "Wizard: Welcome To The Cursed Quiz Games level 1 \n"
@@ -24,13 +25,14 @@ async function welcome() {
   rainbowTitle.stop();
 
   console.log(`
-  ${chalk.bgBlueBright("How To Play")}
+  ${chalk.bgBlueBright("How To Play")}:
   Wizard: It's A Fun Interactive Series Of Games that I Ask Some General Knowledge Questions.
-  if you answer wrong i will be ${chalk.bgRed("Killed")}
-  (Hysteric laughs) haha It's Going To Be Fine Because You Are A Genius right?
+  if you answer wrong i will be ${chalk.bgRed("Killed")} (Hysteric laughs)
+  haha It's Going To Be Fine Because You Are A Genius right?
   `);
 }
 
+// ASK PLAYER NAME
 async function askName() {
   const answers = await inquirer.prompt({
     name: "player_name",
@@ -44,6 +46,7 @@ async function askName() {
   playerName = answers.player_name;
 }
 
+// QUESTIONS SECTION STARTS
 async function question1() {
   const answers = await inquirer.prompt({
     name: "question_1",
@@ -116,7 +119,9 @@ async function question5() {
 
   return handleAnswer(answers.question_5 === "Microsoft");
 }
+// QUESTIONS SECTION ENDS
 
+// Winner Message
 function winner() {
   console.clear();
   const msg = `
@@ -138,7 +143,7 @@ function handleAnswer(isCorrect) {
       spinner.error({
         text: `Wizard: Wrong one ${playerName}...Oh Am I Going To Die Again?`,
       });
-      process.exit(1); 
+      process.exit(1);
     }
   });
 }
